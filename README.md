@@ -7,7 +7,7 @@ Get Following and Followers values on Twitter profiles, using web scraping.
 ### For A Account
 
 ```dart
-Map<String,int> getFFValues(String screenname) async"
+Map<String,int> getFFValues(String screenname) async
 ```
 
 returns `{"Following": valFollowing, "Followers": valFollowers}` , such as `{"Following": 10, "Followers": 52}`.
