@@ -23,4 +23,5 @@ returns List of result from `getFFValues()` for each screennames.
 ## Thanks
 
 Forked from [DartでWebスクレイピング](https://zenn.dev/tris/articles/9705b93a02425f)
+
 Thanks for @tris
