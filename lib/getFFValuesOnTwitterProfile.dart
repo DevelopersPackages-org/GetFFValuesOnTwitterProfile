@@ -9,8 +9,8 @@ Map<String,int> getFFValues(String screenname) async {
   //https://twitter.com/screenname
   String url = 'https://twitter.com/$screenname';
   Uri target = Uri.parse(url);
-  String selectorFollowing = "a[href=\"/$screenname/following] span:first-child span";
-  String selectorFollowers = "a[href=\"/$screenname/followers] span:first-child span";
+  String selectorFollowing = "a[href=\"/$screenname/following\"]:first-child span:first-child span";
+  String selectorFollowers = "a[href=\"/$screenname/followers\"]:first-child span:first-child span";
 
   // 取得する。
   final response = await http.get(target);
