@@ -4,10 +4,26 @@ Get Following and Followers values on Twitter profiles, using web scraping.
 
 ## Use Case
 
+### Import
+
+Add dependencies on your pubspec.yaml
+
+```yaml
+dependencies:
+  twitter_ff_Values:
+    git: https://github.com/DevelopersPackages-org/GetFFValuesOnTwitterProfile.git
+```
+
+And import in dart file
+
+```dart
+import "package:twitter_ff_values/getValues.dart";
+```
+
 ### For A Account
 
 ```dart
-Map<String,int> getFFValues(String screenname) async
+Map<String,int> getFFValues(String screenName) async
 ```
 
 returns `{"Following": valFollowing, "Followers": valFollowers}` , such as `{"Following": 10, "Followers": 52}`.
@@ -15,10 +31,10 @@ returns `{"Following": valFollowing, "Followers": valFollowers}` , such as `{"Fo
 ### For Multiple Accounts
 
 ```dart
-List<Map<String, int>> getFFValuesForIn(List<String> screennames) async
+List<Map<String, int>> getFFValuesForIn(List<String> screenNames) async
 ```
 
-returns List of result from `getFFValues()` for each screennames.
+returns List of result from `getFFValues()` for each screenNames.
 
 ## Thanks
 

@@ -4,13 +4,13 @@ import 'package:html/parser.dart' show parse;
 //Forked from https://zenn.dev/tris/articles/9705b93a02425f
 //Thanks for @tris
 
-Map<String,int> getFFValues(String screenname) async {
-  //@screenname
-  //https://twitter.com/screenname
-  String url = 'https://twitter.com/$screenname';
+Map<String,int> getFFValues(String screenName) async {
+  //@screenName
+  //https://twitter.com/screenName
+  String url = 'https://twitter.com/$screenName';
   Uri target = Uri.parse(url);
-  String selectorFollowing = "a[href=\"/$screenname/following\"]:first-child span:first-child span";
-  String selectorFollowers = "a[href=\"/$screenname/followers\"]:first-child span:first-child span";
+  String selectorFollowing = "a[href=\"/$screenName/following\"]:first-child span:first-child span";
+  String selectorFollowers = "a[href=\"/$screenName/followers\"]:first-child span:first-child span";
 
   // 取得する。
   final response = await http.get(target);
@@ -21,7 +21,7 @@ Map<String,int> getFFValues(String screenname) async {
   // ステータスコードをチェックする。「200 OK」以外のときはその旨を表示して終了する。
   if (response.statusCode != 200) {
     print('ERROR: ${response.statusCode}');
-    return;
+    return {};
   }
 
   // 取得したHTMLのボディをパースする。
@@ -30,6 +30,6 @@ Map<String,int> getFFValues(String screenname) async {
   int valFollowers = int.parse(document.querySelectorAll(selectorFollowers).text);
   return {"Following": valFollowing, "Followers": valFollowers}
 }
-List<Map<String, int>> getFFValuesForIn(List<String> screennames) async {
-  return screennames.map((String screenname)=> await getFFValues(screenname)).toList();
+List<Map<String, int>> getFFValuesForIn(List<String> screenNames) async {
+  return screenNames.map((String screenName)=> await getFFValues(screenName)).toList();
 }
